@@ -1,14 +1,19 @@
 # Goodreads Widget
+
 A simple HTML + JS widget that enables you to embed your Goodreads bookshelf into your  website/blog.
 Using Javascript's Fetch & DOM API. No external dependencies, not even jquery.
+
+<p align="center">
+<img src="assets/images/demo.gif" width="300px">
+</p>
 
 ## Prerequisites
 1. NodeJS 12++
 2. NPM 5.3++  with `npx` already included.
 
 ##  Preparation
-1. Register for Goodreads API KEY.
-2. Note your Goodreads user id. Open goodreads, click your profile picture on the upper-right, click profile. Look at the address bar. It looks like this:
+1. Register for [Goodreads API KEY](https://www.goodreads.com/api/keys).
+2. Note your Goodreads user id. Open Goodreads, click your profile picture on the upper-right, click profile. Look at the address bar. It looks like this:
     ```
     https://www.goodreads.com/user/show/12345678-jon-snow
     ```
@@ -37,13 +42,15 @@ Using Javascript's Fetch & DOM API. No external dependencies, not even jquery.
     ```bash
     npm install
     ```
-
-## Usage
-1.  Execute with:
+8.  Compile the script.
     ```bash
     npx webpack
     ```
-2.  The script will be available in `dist/main.js`. To include it into your HTML page, you must have an element with ID `bookshelf-widget`. For example:
+9.  The script will be available in `dist/main.js`. You can move this script to your project.
+
+## Usage
+
+1.  To include it into your HTML page, you must have an element with ID `bookshelf-widget`. Then include the script you already compiled with script tag. For example:
     ```html
     <!doctype html>
     <html>
@@ -61,4 +68,17 @@ Using Javascript's Fetch & DOM API. No external dependencies, not even jquery.
 
 ## Settings
 1. Open `src/index.js`
-2. 
+2. To change the shelf you want to show, change the `shelf` variable into your prefered shelf name. For example "currently-reading".
+    ```javascript
+    const shelf = "currently-reading"
+    ```
+3. To change how many books  you w ant to load per batch, change the `perPage` variable. The valid  value is integer in the range of `1-200`. For example:
+    ```javascript
+    var perPage = 20;
+    ```
+
+ ## Styling
+ 1. All the stylings required are inside `src/styles/app.css`.   
+
+## License
+MIT
