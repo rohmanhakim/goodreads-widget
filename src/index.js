@@ -36,16 +36,16 @@ function initComponent() {
       loadingWrapper.appendChild(shimmeringElement);
     }
 
-    document.body.appendChild(loadingWrapper);
+    document.getElementById('bookshelf-widget').appendChild(loadingWrapper);
 
     const bookshelf = document.createElement('ul');
     bookshelf.setAttribute("id", "bookshelf");
 
-    document.body.insertBefore(bookshelf, document.body.firstChild);
+    document.getElementById('bookshelf-widget').insertBefore(bookshelf, document.getElementById('bookshelf-widget').firstChild);
   }
 
   var hideLoading =  function () {
-    document.body.removeChild(document.getElementById('loading-wrapper'));
+    document.getElementById('bookshelf-widget').removeChild(document.getElementById('loading-wrapper'));
   }
 
   var fetchBooks = function () {
