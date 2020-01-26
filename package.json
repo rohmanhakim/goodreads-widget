@@ -1,0 +1,15 @@
+{
+  "name": "goodreads-widget",
+  "version": "1.0.0",
+  "description": "A simple javascript widget to show your goodreads bookshelf.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "widget",
+    "goodreads"
+  ],
+  "author": "Muhammad Arif Rohman Hakim",
+  "license": "ISC"
+}
