@@ -22,6 +22,10 @@
     background: #777;
     margin-top: 2px;
   }
+   ul.loading-wrapper, ul.bookshelf {
+      margin: 0px;
+  }
+  
   
   @keyframes fullView {
     100% {

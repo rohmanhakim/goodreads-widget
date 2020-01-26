@@ -40,6 +40,7 @@ function initComponent() {
 
     const bookshelf = document.createElement('ul');
     bookshelf.setAttribute("id", "bookshelf");
+    bookshelf.setAttribute("class", "bookshelf");
 
     document.getElementById('bookshelf-widget').insertBefore(bookshelf, document.getElementById('bookshelf-widget').firstChild);
   }
