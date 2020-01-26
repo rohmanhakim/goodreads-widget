@@ -11,5 +11,10 @@
     "goodreads"
   ],
   "author": "Muhammad Arif Rohman Hakim",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {}
 }

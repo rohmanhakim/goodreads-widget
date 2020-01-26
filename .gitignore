@@ -1,3 +1,4 @@
+app-env.sh
 # Logs
 logs
 *.log
