@@ -2,13 +2,16 @@
     border-radius: 8px;  
   }
   .w480 {
-      width: 480px;
+      max-width: 480px;
+      width: 80%;
   }
   .w320 {
-      width: 320px;
+      max-width: 320px;
+      width: 50%;
   }
   .w240 {
-      width: 240px;
+      max-width: 240px;
+      width: 30%;
   }
   .card {
     border: 2px solid #fff;

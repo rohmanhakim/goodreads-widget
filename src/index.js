@@ -5,13 +5,10 @@ function initComponent() {
   const userId = process.env.GOODREADS_USER_ID;
   const goodreadsUrl = "https://www.goodreads.com/";
   const shelf = "read";
-  const perPage = 20;
-  const goodreadsEndpoint = `review/list/${userId}.xml?key=${apiKey}&v=2&shelf=${shelf}&per_page=${perPage}`;
-  const corsAnywhereUrl = "https://cors-anywhere.herokuapp.com/"
-  const url = corsAnywhereUrl + goodreadsUrl + goodreadsEndpoint;
 
+  var perPage = 20;
   var nextPage = 1;
-
+  
   var showLoading = function () {
     const loadingWrapper = document.createElement('ul');
     loadingWrapper.setAttribute("id", "loading-wrapper")
@@ -45,11 +42,15 @@ function initComponent() {
     document.getElementById('bookshelf-widget').insertBefore(bookshelf, document.getElementById('bookshelf-widget').firstChild);
   }
 
-  var hideLoading =  function () {
+  var hideLoading = function () {
     document.getElementById('bookshelf-widget').removeChild(document.getElementById('loading-wrapper'));
   }
 
   var fetchBooks = function () {
+    const goodreadsEndpoint = `review/list/${userId}.xml?key=${apiKey}&v=2&shelf=${shelf}&per_page=${perPage}`;
+    const corsAnywhereUrl = "https://cors-anywhere.herokuapp.com/"
+    const url = corsAnywhereUrl + goodreadsUrl + goodreadsEndpoint;
+
     fetch(url + "&page=" + nextPage)
       .then((response) => {
         return response.text();
@@ -58,8 +59,10 @@ function initComponent() {
         var domParser = new DOMParser();
         var xmlDocument = domParser.parseFromString(xmlResponse, "text/xml");
 
-        var total = xmlDocument.getElementsByTagName('reviews')[0].getAttribute('total');
-        var end = xmlDocument.getElementsByTagName('reviews')[0].getAttribute('end');
+        var total = parseInt(xmlDocument.getElementsByTagName('reviews')[0].getAttribute('total'));
+        var start = parseInt(xmlDocument.getElementsByTagName('reviews')[0].getAttribute('start'));
+        var end = parseInt(xmlDocument.getElementsByTagName('reviews')[0].getAttribute('end'));
+        perPage = end - start + 1;
 
         var reviews = xmlDocument.getElementsByTagName('review')
         var mapped = Array.from(reviews).map(review => {
